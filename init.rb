@@ -1,6 +1,5 @@
 Redmine::Plugin.register :redmine_percent_done do
   name 'Redmine Issue Done Ratio Plugin'
-  #url  'https://jkraemer.net/redmine-plugins'
   description 'Automatic issue done ratios for selected issue statuses, keeping the field editable manually.'
   author     'Jens Krämer'
   author_url 'https://jkraemer.net/'
