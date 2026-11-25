@@ -1,46 +1,51 @@
-The Redmine Issue Done Ratio Plugin  [![Test with Redmine](https://github.com/jkraemer/redmine_percent_done/actions/workflows/redmine.yml/badge.svg)](https://github.com/jkraemer/redmine_percent_done/actions/workflows/redmine.yml)
-===================================
+# Redmine Issue Done Ratio Plugin (Enterprise Edition)
 
-This plugin allows to enforce a certain setting for the `done_ratio` issue
-field for just some Issue statuses, while keeping the ability to manually set
-the done ratio.
+[![Redmine](https://img.shields.io/badge/Redmine-5.x%20%7C%206.x%20%7C%207.x-blue.svg)](https://www.redmine.org/)
+[![Ruby](https://img.shields.io/badge/Ruby-3.x%20%7C%204.x-red.svg)](https://www.ruby-lang.org/)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
 
-For example, new issues can default to 0%, resolved issues get 100%, but while
-working on an issue, the assignee may freely change the done ratio to reflect
-actual progress.
+An automated Issue Done Ratio manager for Redmine that automatically updates `done_ratio` based on Issue Status transitions while preserving full manual editing capabilities.
 
-[Making of](https://jkraemer.net/2015/11/how-to-create-a-redmine-plugin) -
-Redmine plugin creation by example of this plugin.
+*Maintained and modernized by **Arean Narrayan** (<arean@synorastudio.in>)*  
+*Original project by [Jens Krämer](https://jkraemer.net).*
 
-Installation
-------------
+---
 
-Standard Redmine plugin installation instructions apply.
+## 🌟 Key Features
 
-1. Put the plugin into `plugins/redmine_percent_done`
-2. Restart the server
-3. There is no step 3.
+- **Automated Status Mapping:** Automatically enforces specific `done_ratio` values (e.g. `New` -> 0%, `In Progress` -> 50%, `Closed` -> 100%) upon status change.
+- **Manual Override Preservation:** If an assignee manually adjusts the percent done, the manual value is preserved without getting overwritten.
+- **Modern Rails 7 / Ruby 4 & Zeitwerk Ready:** Loaded via `Rails.configuration.to_prepare` and prepended cleanly into `Issue`.
+- **Zero Database Migration:** Fully configurable via Redmine Plugin Settings (`Administration -> Plugins -> Redmine Issue Done Ratio Plugin -> Configure`).
 
-Manual editing of the done ratio only works if _Calculate the issue done ratio
-with_ is set to _Use the issue field_ in _Administration_ / _Settings_ / _Issue
-tracking_.
+---
 
+## 🚀 Installation
 
-License
--------
+1. Clone or copy into your Redmine plugins folder:
+   ```bash
+   cd /data/redmine/plugins
+   git clone https://github.com/Arean82/redmine_percent_done.git
+   ```
+2. Restart Redmine:
+   ```bash
+   sudo systemctl restart redmine
+   ```
+3. Ensure *Calculate the issue done ratio with* is set to *Use the issue field* under:
+   `Administration -> Settings -> Issue tracking`.
 
-Copyright (C) 2015 - 2023 [Jens Krämer](https://jkraemer.net)
+---
 
-The Issue Done Ratio plugin for Redmine is free software: you can redistribute
-it and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+## 👤 Author & Support
 
-The Issue Done Ratio plugin for Redmine is distributed in the hope that it
-will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
-Public License for more details.
+- **Author & Maintainer:** Arean Narrayan  
+- **Email:** [arean@synorastudio.in](mailto:arean@synorastudio.in)  
+- **GitHub:** [@Arean82](https://github.com/Arean82)  
+- **Repository:** [https://github.com/Arean82/redmine_percent_done](https://github.com/Arean82/redmine_percent_done)
 
-You should have received a copy of the GNU General Public License along with
-the plugin. If not, see [www.gnu.org/licenses](https://www.gnu.org/licenses/).
+---
+
+## 📄 License
+
+GPL-3.0 License. Copyright (C) 2015–2023 Jens Krämer, Copyright (C) 2024–2026 Arean Narrayan.
 
